@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+  <!--  Hello World
+  <h1 v-show="false">{{ hello  }}</h1>
+  <button @click="increment">
+    +
+  </button>
+  {{ index }} -->
+
+  <!-- Interaccion con Fetch -->
+  <button @click="fetchData">Cargar</button>
+  <ul>
+    <li v-for="post in res" :key="post.id">{{ post.title }}</li>
+  </ul>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, onMounted } from 'vue'
+import useCounter from './counter.js'
+import useFetch from './fetch.js'
+
+function hi () {
+  const hello = ref("hello!")
+  return { hello }
+}
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+
+  setup () {
+    const { hello } = hi()
+    const { index, increment } = useCounter()
+
+    onMounted(() => console.log('Mounted...'))
+    const { res, isFetching, fetchData } = useFetch('https://jsonplaceholder.typicode.com/posts')
+
+    return {
+      hello,
+      index,
+      increment,
+      fetchData,
+      res,
+      isFetching
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

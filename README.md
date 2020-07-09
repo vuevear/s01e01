@@ -1,24 +1,19 @@
-# s01e01
+# S01E01
 
-## Project setup
-```
-npm install
-```
+> 📹 🖖
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 🔖 Introducción a Composition API
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Partimos de un *hello world* hasta llegar un caso de uso real, donde hacemos un pequeña integracion con fetch para obtener informacion de una API REST.
 
-### Lints and fixes files
-```
-npm run lint
+
+## 💻 Setup
+
+```bash
+$ npm install # instalar dependencias
+$ npm run serve # inciar proyecto
+$ npm run build # compilar proyecto
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+---
+**👨‍💻 with 💚 by [@ianaya89](https://twitter.com/ianaya89)**
